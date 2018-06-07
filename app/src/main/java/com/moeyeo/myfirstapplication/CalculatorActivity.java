@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
-public class CalculatorActivity extends AppCompatActivity {
+public class CalculatorActivity extends AppCompatActivity implements View.OnClickListener {
     double result=0,val=0;
     private Button button0,button1,button2,button3,button4,button5,button6,button7,button8,button9;
     private Button button_c,button_Ac,button_dot;
@@ -18,6 +18,11 @@ public class CalculatorActivity extends AppCompatActivity {
 
 
     char state = '0';
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(this, "Button2 Clicked!", Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
