@@ -12,6 +12,31 @@
         android:orientation="vertical">
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="25dp"
+            >
+
+            <RadioButton
+                android:id="@+id/gradePass"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pass/Not Pass"
+                android:textColor="#e3555755"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/gradeAf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="A-F"
+                android:textColor="#e3555755"
+                android:textSize="18sp"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,17 +55,18 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/AssignmentScore"
+                android:id="@+id/assignmentScore"
                 android:layout_width="174dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="30dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number" />
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,11 +84,11 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/MidScore"
+                android:id="@+id/midScore"
                 android:layout_width="174dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="30dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number" />
@@ -88,7 +114,7 @@
 
             <EditText
 
-                android:id="@+id/FinalScore"
+                android:id="@+id/finalScore"
                 android:layout_width="174dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -113,12 +139,12 @@
             android:textStyle="bold" />
 
         <TextView
-            android:textColor="@color/colorAccent"
             android:id="@+id/showGrade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/colorAccent"
             android:textSize="30sp" />
 
     </LinearLayout>

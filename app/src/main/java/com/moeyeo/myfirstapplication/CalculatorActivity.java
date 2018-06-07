@@ -21,7 +21,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(this, "Button2 Clicked!", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
