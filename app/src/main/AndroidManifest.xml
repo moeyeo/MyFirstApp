@@ -16,7 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Cal"></activity>
+        <activity android:name=".CalculatorActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".RandomActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".GradeActivity"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

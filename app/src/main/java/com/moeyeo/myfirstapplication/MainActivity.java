@@ -14,17 +14,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void gradingFunction(View view) {
-        Toast.makeText(this, "Grading Clicked!", Toast.LENGTH_SHORT).show();
-
-    }
-
-    public void calFunction(View view) {
-        Intent intent = new Intent(this, Cal.class);
+    public void grade_function(View view) {
+        Intent intent = new Intent(this, GradeActivity.class);
         startActivity(intent);
     }
 
-    public void randomFunction(View view) {
+    public void cal_function(View view) {
+        Intent intent = new Intent(this, CalculatorActivity.class);
+        startActivity(intent);
+    }
+
+    public void random_function(View view) {
+        Intent intent = new Intent(this, RandomActivity.class);
+        startActivity(intent);
     }
 
 }
