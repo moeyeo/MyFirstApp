@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 public class CalculatorActivity extends AppCompatActivity implements View.OnClickListener {
     double result=0,val=0;
     private Button button0,button1,button2,button3,button4,button5,button6,button7,button8,button9;
-    private Button button_c,button_Ac,button_dot;
+    private Button buttonC, buttonAc, buttonDot;
 
     private DecimalFormat decimalFormat;
     private TextView showValue, showResult;
@@ -21,7 +21,36 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button0 : showValue.setText(showValue.getText()+"0"); break;
+            case R.id.button1 : showValue.setText(showValue.getText()+"1"); break;
+            case R.id.button2 : showValue.setText(showValue.getText()+"2"); break;
+            case R.id.button3 : showValue.setText(showValue.getText()+"3"); break;
+            case R.id.button4 : showValue.setText(showValue.getText()+"4"); break;
+            case R.id.button5 : showValue.setText(showValue.getText()+"5"); break;
+            case R.id.button6 : showValue.setText(showValue.getText()+"6"); break;
+            case R.id.button7 : showValue.setText(showValue.getText()+"7"); break;
+            case R.id.button8 : showValue.setText(showValue.getText()+"8"); break;
+            case R.id.button9 : showValue.setText(showValue.getText()+"9"); break;
+            case R.id.buttonDot : showValue.setText(showValue.getText()+"."); break;
+            case R.id.clearButton : {
+                if(showValue.getText().length()>0){
+                    CharSequence currentValue = showValue.getText();
+                    showValue.setText(currentValue.subSequence(0,currentValue.length()-1));
+                } else {
+                    showValue.setText("");
+                }
+                break;
+            }
+            case R.id.acButton : {
+                showResult.setText("0");
+                result=0;
+                state='0';
+                val=0;
+                break;
+            }
 
+        }
     }
 
     @Override
@@ -83,123 +112,46 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
 
 
         button0 = (Button) findViewById(R.id.button0);
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"0");
-
-            }
-
-        });
+        button0.setOnClickListener(this);
 
         button1 = (Button) findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"1");
-            }
-        });
+        button1.setOnClickListener(this);
 
         button2 = (Button) findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"2");
-            }
-        });
+        button2.setOnClickListener(this);
 
         button3 = (Button) findViewById(R.id.button3);
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"3");
-            }
-        });
+        button3.setOnClickListener(this);
 
         button4 = (Button) findViewById(R.id.button4);
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"4");
-            }
-        });
+        button4.setOnClickListener(this);
 
         button5 = (Button) findViewById(R.id.button5);
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"5");
-            }
-        });
+        button5.setOnClickListener(this);
 
         button6 = (Button) findViewById(R.id.button6);
-        button6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"6");
-            }
-        });
+        button6.setOnClickListener(this);
 
         button7 = (Button) findViewById(R.id.button7);
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"7");
-            }
-        });
+        button7.setOnClickListener(this);
 
         button8 = (Button) findViewById(R.id.button8);
-        button8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"8");
-            }
-        });
+        button8.setOnClickListener(this);
 
         button9 = (Button) findViewById(R.id.button9);
-        button9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showValue.setText(showValue.getText()+"9");
-            }
-        });
+        button9.setOnClickListener(this);
 
-        button_dot = (Button) findViewById(R.id.button_dot);
-        button_dot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    showValue.setText(showValue.getText()+".");
-            }
-        });
+        buttonDot = (Button) findViewById(R.id.buttonDot);
+        buttonDot.setOnClickListener(this);
 
-        button_c = (Button) findViewById(R.id.clearbutton);
-        button_c.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(showValue.getText().length()>0){
-                    CharSequence currentValue = showValue.getText();
-                    showValue.setText(currentValue.subSequence(0,currentValue.length()-1));
-                }
-                else{
-                    showValue.setText("");
-                }
-            }
-        });
+        buttonC = (Button) findViewById(R.id.clearButton);
+        buttonC.setOnClickListener(this);
 
-        button_Ac = (Button) findViewById(R.id.ac_button);
-        button_Ac.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showResult.setText("0");
-                result=0;
-                state='0';
-                val=0;
-            }
-        });
+        buttonAc = (Button) findViewById(R.id.acButton);
+        buttonAc.setOnClickListener(this);
 
 }
     public void Calculate(){
-
         try{
             val = Double.parseDouble(showValue.getText().toString());
             switch (state){

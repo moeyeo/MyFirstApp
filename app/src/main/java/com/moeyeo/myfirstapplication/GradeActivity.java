@@ -32,6 +32,30 @@ public class GradeActivity extends AppCompatActivity {
         showGrade = (TextView) findViewById(R.id.showGrade);
         confirmButton = (Button) findViewById(R.id.buttonConfirm);
 
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int assignmentResult = Integer.parseInt(assignmentScore.getText().toString());
+                int midResult = Integer.parseInt(midtermScore.getText().toString());
+                int finalResult = Integer.parseInt(finalScore.getText().toString());
+
+                result = assignmentResult+midResult+finalResult;
+                if (gradeAf.isChecked()) {
+                    gradePass.setChecked(false);
+                    String res = calGradeAf(result);
+                    showGrade.setText(res);
+                }
+                else if(gradePass.isChecked()) {
+                    gradeAf.setChecked(false);
+                    String res = calGradePass(result);
+                    showGrade.setText(res);
+                }
+                else showGrade.setText("Plase check type grade calculator");
+
+
+            }
+        });
+
         gradePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,48 +70,19 @@ public class GradeActivity extends AppCompatActivity {
             }
         });
 
-        getInput();
     }
 
 
+    private String calGradePass(int result) {
 
-    private void getInput(){
-        confirmButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int assignmentResult = Integer.parseInt(assignmentScore.getText().toString());
-                int midResult = Integer.parseInt(midtermScore.getText().toString());
-                int finalResult = Integer.parseInt(finalScore.getText().toString());
-
-                result = assignmentResult+midResult+finalResult;
-                if (gradeAf.isChecked()==true) {
-                    gradePass.setChecked(false);
-                    calGreadeAf(result);
-
-                }
-                else if(gradePass.isChecked()==true) {
-                    gradeAf.setChecked(false);
-                    calGreadePass(result);
-                }
-                else showGrade.setText("Plase check type grade calculator");
-
-
-            }
-        });
-    }
-
-
-    private void calGreadePass(int result) {
-
-        if (result>=80&&result>=100) resultGrade = "Pass";
+        if (result>=50&&result<=100) resultGrade = "Pass";
         else if (result <50) resultGrade = "Not Pass";
         else resultGrade = "input error score must between 0-100)";
 
-        showGrade.setText(resultGrade);
-
+        return resultGrade;
     }
 
-    private void calGreadeAf (int result) {
+    private String calGradeAf(int result) {
 
         if (result >= 80 &&result<=100) resultGrade = "A";
         else if (result >= 75) resultGrade = "B+ or Pass";
@@ -99,7 +94,7 @@ public class GradeActivity extends AppCompatActivity {
         else if (result>=0) resultGrade = "F";
         else resultGrade = "input error score must between 0-100)";
 
-        showGrade.setText(resultGrade);
+        return resultGrade;
     }
 
 
